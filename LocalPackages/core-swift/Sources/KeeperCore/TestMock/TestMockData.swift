@@ -2,12 +2,8 @@ import Foundation
 import TonSwift
 
 /// TEST ONLY: моковый баланс TON и NFT-«подарки» для проверки интерфейса.
-///
-/// Работает ТОЛЬКО в Debug-сборке (`#if DEBUG`), в Release код вырезается компилятором.
-/// Управляется из Debug-панели (кнопка «TEST MODE» поверх приложения).
-/// Все мок-NFT имеют префикс "[TEST]", баланс фейковый — в блокчейне его нет.
+/// Все подписи и названия помечены TEST. Данные фейковые — в блокчейне их нет.
 public enum TestMockData {
-  #if DEBUG
   public static let didChangeNotification = Notification.Name("TestMockData.didChange")
   
   public struct Gift: Codable, Equatable {
@@ -25,6 +21,7 @@ public enum TestMockData {
   private static let defaults = UserDefaults.standard
   private static let nanoPerTon: Double = 1_000_000_000
   public static let collectionName = "[TEST] Gifts"
+  public static let label = "[TEST]"
   
   // MARK: - Public controls (используются Debug-панелью)
   
@@ -81,23 +78,28 @@ public enum TestMockData {
     notifyChanged()
   }
   
+  public static func marked(_ text: String) -> String {
+    if text.hasPrefix(label) { return text }
+    return "\(label) \(text)"
+  }
+  
   // MARK: - Internal (используется сервисами KeeperCore)
   
-  static var isActive: Bool { isEnabled }
+  public static var isActive: Bool { isEnabled }
   
   static func nfts(owner: Address) -> [NFT] {
     guard isEnabled else { return [] }
     let collection = NFTCollection(
       address: fakeAddress("test-collection"),
       name: collectionName,
-      description: "Mock gifts collection for testing"
+      description: "TEST mock gifts collection — not on-chain"
     )
     let ownerAccount = WalletAccount(address: owner, name: nil, isScam: false, isWallet: true)
     return gifts.map { gift in
       NFT(
         address: fakeAddress("test-gift-\(gift.id)"),
         owner: ownerAccount,
-        name: "[TEST] \(gift.name)",
+        name: marked(gift.name),
         imageURL: previewURL(gift: gift, size: 500),
         preview: NFT.Preview(
           size5: previewURL(gift: gift, size: 5),
@@ -105,7 +107,7 @@ public enum TestMockData {
           size500: previewURL(gift: gift, size: 500),
           size1500: previewURL(gift: gift, size: 1500)
         ),
-        description: "Test gift: \(gift.name)",
+        description: "TEST gift: \(gift.name) — not on-chain",
         attributes: [NFT.Attribute(key: "type", value: "test gift")],
         collection: collection,
         programmaticButtons: nil,
@@ -155,12 +157,7 @@ public enum TestMockData {
   private static func previewURL(gift: Gift, size: Int) -> URL? {
     let colors = ["4FC3F7", "81C784", "FFB74D", "BA68C8", "E57373", "4DB6AC"]
     let color = colors[gift.id % colors.count]
-    let text = gift.name.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? "gift"
+    let text = "TEST-\(gift.name)".addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? "TEST"
     return URL(string: "https://placehold.co/\(size)x\(size)/\(color)/FFFFFF/png?text=\(text)")
   }
-  #else
-  static var isActive: Bool { false }
-  static func nfts(owner: Address) -> [NFT] { [] }
-  static func tonBalance(_ real: TonBalance) -> TonBalance { real }
-  #endif
 }

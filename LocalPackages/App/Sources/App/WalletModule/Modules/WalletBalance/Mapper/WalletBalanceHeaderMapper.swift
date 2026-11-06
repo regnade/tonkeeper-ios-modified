@@ -23,11 +23,12 @@ struct WalletBalanceHeaderMapper {
   
   func mapTotalBalance(totalBalance: TotalBalance?) -> String {
     if let totalBalance = totalBalance {
-      return decimalAmountFormatter.format(amount: totalBalance.amount,
+      let formatted = decimalAmountFormatter.format(amount: totalBalance.amount,
                                            maximumFractionDigits: totalBalance.amount > 1000 ? 0 : 2,
                                            currency: totalBalance.currency)
+      return TestMockData.isActive ? TestMockData.marked(formatted) : formatted
     } else {
-      return "-"
+      return TestMockData.isActive ? "[TEST] -" : "-"
     }
   }
 }

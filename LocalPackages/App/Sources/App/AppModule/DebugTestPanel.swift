@@ -1,10 +1,8 @@
 import UIKit
 import KeeperCore
 
-#if DEBUG
-/// TEST ONLY (Debug): плавающая красная кнопка «TEST MODE» поверх приложения.
+/// TEST ONLY: плавающая красная кнопка «TEST MODE» поверх приложения.
 /// Нажатие открывает панель управления тестовым балансом TON и NFT-подарками.
-/// Кнопку можно перетаскивать. В Release-сборках этого кода нет.
 public final class DebugTestPanel: NSObject {
   
   public static let shared = DebugTestPanel()
@@ -66,30 +64,31 @@ public final class DebugTestPanel: NSObject {
   private func presentMenu() {
     let gifts = TestMockData.gifts
     let message = """
+    TEST
     Мок: \(TestMockData.isEnabled ? "ВКЛ" : "ВЫКЛ")
-    Добавка к балансу: \(format(TestMockData.extraTon)) TON
-    Подарков: \(gifts.count)
+    Добавка к балансу: \(format(TestMockData.extraTon)) TON [TEST]
+    Подарков: \(gifts.count) [TEST]
     
     Данные фейковые, в блокчейне их нет.
     """
-    let alert = UIAlertController(title: "Test mode", message: message, preferredStyle: .alert)
+    let alert = UIAlertController(title: "TEST MODE", message: message, preferredStyle: .alert)
     
-    alert.addAction(UIAlertAction(title: "Задать баланс TON", style: .default) { [weak self] _ in
+    alert.addAction(UIAlertAction(title: "TEST: задать баланс TON", style: .default) { [weak self] _ in
       self?.presentBalanceInput()
     })
-    alert.addAction(UIAlertAction(title: "Добавить подарок", style: .default) { [weak self] _ in
+    alert.addAction(UIAlertAction(title: "TEST: добавить подарок", style: .default) { [weak self] _ in
       self?.presentGiftInput()
     })
-    alert.addAction(UIAlertAction(title: "Добавить 5 подарков", style: .default) { _ in
+    alert.addAction(UIAlertAction(title: "TEST: добавить 5 подарков", style: .default) { _ in
       (0..<5).forEach { _ in TestMockData.addGift(name: nil) }
     })
-    alert.addAction(UIAlertAction(title: "Удалить все подарки", style: .destructive) { _ in
+    alert.addAction(UIAlertAction(title: "TEST: удалить все подарки", style: .destructive) { _ in
       TestMockData.removeAllGifts()
     })
-    alert.addAction(UIAlertAction(title: TestMockData.isEnabled ? "Выключить мок" : "Включить мок", style: .default) { _ in
+    alert.addAction(UIAlertAction(title: TestMockData.isEnabled ? "TEST: выключить мок" : "TEST: включить мок", style: .default) { _ in
       TestMockData.isEnabled.toggle()
     })
-    alert.addAction(UIAlertAction(title: "Сбросить к умолчанию", style: .default) { _ in
+    alert.addAction(UIAlertAction(title: "TEST: сбросить к умолчанию", style: .default) { _ in
       TestMockData.resetToDefaults()
     })
     alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel))
@@ -98,8 +97,8 @@ public final class DebugTestPanel: NSObject {
   
   private func presentBalanceInput() {
     let alert = UIAlertController(
-      title: "Баланс TON",
-      message: "Сумма, которая прибавляется к реальному балансу",
+      title: "TEST: баланс TON",
+      message: "Тестовая сумма, которая прибавляется к реальному балансу. На блокчейне её нет.",
       preferredStyle: .alert
     )
     alert.addTextField { field in
@@ -119,8 +118,8 @@ public final class DebugTestPanel: NSObject {
   
   private func presentGiftInput() {
     let alert = UIAlertController(
-      title: "Новый подарок",
-      message: "Название тестового NFT-подарка",
+      title: "TEST: новый подарок",
+      message: "Название тестового NFT. В списке будет префикс [TEST].",
       preferredStyle: .alert
     )
     alert.addTextField { field in
@@ -147,4 +146,3 @@ public final class DebugTestPanel: NSObject {
     top.present(alert, animated: true)
   }
 }
-#endif

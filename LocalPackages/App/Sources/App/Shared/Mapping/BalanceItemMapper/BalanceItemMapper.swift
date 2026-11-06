@@ -28,7 +28,7 @@ struct BalanceItemMapper {
     return TKListItemContentView.Configuration(
       iconViewConfiguration: .tonConfiguration(),
       textContentViewConfiguration: createTextContentViewConfiguration(
-        title: TonInfo.symbol,
+        title: TestMockData.isActive ? TestMockData.marked(TonInfo.symbol) : TonInfo.symbol,
         isPinned: isPinned,
         caption: caption,
         amount: BigUInt(item.amount),

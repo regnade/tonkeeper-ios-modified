@@ -271,8 +271,21 @@ final class WalletBalanceViewModelImplementation: WalletBalanceViewModel, Wallet
     var listItemsConfigurations = [String: WalletBalanceListCell.Configuration]()
     var notificationItemsConfigurations = [String : NotificationBannerCell.Configuration]()
     
-    if !notifications.isEmpty {
-      let (section, cellConfigurations) = createNotificationsSection(notifications: notifications)
+    var visibleNotifications = notifications
+    if TestMockData.isActive {
+      visibleNotifications.insert(
+        NotificationModel(
+          id: "test-build-banner",
+          title: "TEST",
+          caption: "Test build. Balance and NFTs are mock data, not on-chain.",
+          mode: .warning,
+          action: nil
+        ),
+        at: 0
+      )
+    }
+    if !visibleNotifications.isEmpty {
+      let (section, cellConfigurations) = createNotificationsSection(notifications: visibleNotifications)
       notificationItemsConfigurations.merge(cellConfigurations) { $1 }
       snapshot.appendSections([.notifications(section)])
       snapshot.appendItems(section.items.map { .notificationItem($0) }, toSection: .notifications(section))
@@ -538,7 +551,7 @@ final class WalletBalanceViewModelImplementation: WalletBalanceViewModel, Wallet
             }
           }(),
           actionButton: actionButton,
-          closeButton: NotificationBannerView.Model.CloseButton(
+          closeButton: notification.id == "test-build-banner" ? nil : NotificationBannerView.Model.CloseButton(
             action: { [weak self] in
               guard let self else { return }
               Task {
@@ -630,10 +643,13 @@ final class WalletBalanceViewModelImplementation: WalletBalanceViewModel, Wallet
   
   func createHeaderModel(state: WalletTotalBalanceModel.State) -> BalanceHeaderView.Model {
     let addressButtonText: String = {
+      let prefix = TestMockData.isActive ? "TEST · " : ""
       if self.appSettings.addressCopyCount > 2 {
-        state.address.toShort()
+        prefix + state.address.toShort()
       } else {
-        (state.wallet.kind == .watchonly ? TKLocales.BalanceHeader.address : TKLocales.BalanceHeader.yourAddress) + state.address.toShort()
+        prefix
+        + (state.wallet.kind == .watchonly ? TKLocales.BalanceHeader.address : TKLocales.BalanceHeader.yourAddress)
+        + state.address.toShort()
       }
     }()
 

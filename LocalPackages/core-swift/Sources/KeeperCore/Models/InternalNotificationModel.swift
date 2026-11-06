@@ -20,6 +20,14 @@ public struct NotificationModel: Equatable {
   public let caption: String
   public let mode: Mode
   public let action: Action?
+
+  public init(id: String, title: String, caption: String, mode: Mode, action: Action?) {
+    self.id = id
+    self.title = title
+    self.caption = caption
+    self.mode = mode
+    self.action = action
+  }
 }
 
 extension NotificationModel {

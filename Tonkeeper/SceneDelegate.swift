@@ -44,9 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     window.makeKeyAndVisible()
     
-#if DEBUG
     DebugTestPanel.install(in: window) // TEST ONLY: кнопка TEST MODE
-#endif
     
     self.appCoordinator = coordinator
     self.window = window
