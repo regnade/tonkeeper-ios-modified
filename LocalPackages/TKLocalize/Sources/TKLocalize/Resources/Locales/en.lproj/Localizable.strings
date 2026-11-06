@@ -1,0 +1,704 @@
+"actions.delete" = "Delete";
+"actions.cancel" = "Cancel";
+"actions.save" = "Save";
+"actions.paste" = "Paste";
+"actions.continue_action" = "Continue";
+"actions.done" = "Done";
+"actions.edit" = "Edit";
+"actions.copy" = "Copy";
+"actions.sign_out" = "Sign Out";
+"actions.more" = "More";
+"actions.ok" = "OK";
+"actions.open" = "Open";
+"actions.hide_nft" = "Hide NFT";
+"actions.hide_collection" = "Hide Collection";
+"actions.hide_and_report_spam" = "Hide and Report Spam";
+"actions.view_on_tonviewier" = "View on Tonviewer";
+"actions.burn_nft" = "Burn NFT";
+"actions.confirm" = "Confirm";
+
+"state.failed" = "Failed";
+
+"result.success" = "Done";
+"result.failure" = "Error";
+
+"toast.copied" = "Copied";
+"toast.loading" = "Loading";
+"toast.link_expired" = "Expired link";
+"toast.service_unavailable" = "Service unavailable";
+"toast.failed" = "Failed";
+
+"errors.unknown" = "Error";
+"errors.multiaccount_error" = "Please use Tonkeeper Desktop for Multi-Wallet Account";
+
+"dates.today" = "Today";
+"dates.yesterday" = "Yesterday";
+
+"tabs.wallet" = "Wallet";
+"tabs.history" = "History";
+"tabs.browser" = "Browser";
+"tabs.purchases" = "Purchases";
+"tabs.collectibles" = "Collectibles";
+
+"list.show_all" = "Show all";
+"list.hide" = "Hide";
+
+"camera_permission.title" = "Enable access to your camera in order to can scan QR codes";
+"camera_permission.button" = "Open Settings";
+
+"country_picker.title" = "Choose your country";
+"country_picker.search" = "Search";
+"country_picker.auto" = "Auto";
+"country_picker.all_regions" = "All Regions";
+
+"collectibles.title" = "Collectibles";
+"collectibles.collection_hidden" = "Collection hidden";
+"collectibles.nft_hidden" = "NFT hidden";
+"collectibles.collection_marked_as_spam" = "Collection marked as Spam";
+"collectibles.nft_marked_as_spam" = "NFT marked as Spam";
+
+"purchases.title" = "Purchases";
+"purchases.empty_placeholder" = "Your collectibles\nwill be shown here";
+"purchases.unnamed_collection" = "Unnamed collection";
+"purchases.unverified" = "Unverified";
+
+"history.title" = "History";
+"history.placeholder.title" = "Your history\nwill be shown here";
+"history.placeholder.subtitle" = "Make your first transaction!";
+"history.placeholder.buttons.receive" = "Receive";
+"history.placeholder.buttons.buy" = "Buy Toncoin";
+"history.tab.all" = "All";
+"history.tab.spam" = "Spam";
+
+"history.event.comment.more" = "More";
+
+"bridge_web.refresh" = "Refresh";
+"bridge_web.share" = "Share";
+"bridge_web.copy_link" = "Copy link";
+
+"browser.tab.explore" = "Explore";
+"browser.tab.connected" = "Connected";
+"browser.list.all" = "All";
+
+"browser.explore.empty.title" = "Use Tonkeeper with all TON apps and services";
+"browser.explore.empty.caption" = "Explore apps and services where you can use Tonkeeper for sign-in and payments.";
+"browser.explore.empty.learn_more" = "Learn more";
+
+"browser.connected_apps.empty_title" = "Connected apps will be\U00A0shown here";
+"browser.connected_apps.empty_description" = "Explore apps and services in\U00A0Tonkeeper browser.";
+"browser.connected_apps.disconnect.title" = "Remove";
+"browser.connected_apps.disconnect.button" = "Remove";
+
+"browser.search_field.placeholder" = "Search or enter address";
+"browser.search.title" = "Browser";
+"browser.search.placeholder" = "Enter an address or search the web";
+"browser.search.duckgo_search.title" = "DuckDuckGo Search";
+"browser.search.google_search.title" = "Google Search";
+"browser.search.open_link_placeholder" = "Open link";
+
+"event_details.received" = "Received";
+"event_details.sent" = "Sent";
+"event_details.recipient.title" = "Recipient";
+"event_details.recipient.address" = "Recipient address";
+"event_details.sender.title" = "Sender";
+"event_details.sender.address" = "Sender address";
+"event_details.fee" = "Fee";
+"event_details.comment" = "Comment";
+"event_details.description" = "Description";
+"event_details.operation" = "Operation";
+"event_details.swapped" = "Operation";
+"event_details.report_spam" = "Report Spam";
+"event_details.not_spam" = "Not Spam";
+"event_details.transaction_marked_as_spam" = "Transaction marked as Spam";
+
+"settings.title" = "Settings";
+"settings.items.security" = "Security";
+"settings.items.backup" = "Backup";
+"settings.items.currency" = "Currency";
+"settings.items.theme" = "Theme";
+"settings.items.search" = "Search";
+"settings.items.logout" = "Sign out";
+"settings.items.faq" = "FAQ";
+"settings.items.support" = "Support";
+"settings.items.tk_news" = "Tonkeeper news";
+"settings.items.contact_us" = "Contact us";
+"settings.items.rate" = "Rate %@";
+"settings.items.legal" = "Legal";
+"settings.items.sign_out_account" = "Sign Out ";
+"settings.items.delete_account" = "Delete Account";
+"settings.items.delete_watch_only" = "Delete Watch account";
+"settings.items.delete_acount_alert_title" = "Delete account";
+"settings.items.delete_watch_only_acount_alert_title" = "Delete Watch account";
+"settings.items.setup_wallet_description" = "Edit name and color";
+"settings.items.purchases" = "Purchases";
+"settings.items.notifications" = "Notifications";
+"settings.items.wallet_w5" = "Wallet W5";
+"settings.items.wallet_v4R2" = "Wallet v4R2";
+"settings.items.battery" = "Battery";
+"settings.items.connected_apps" = "Connected Apps";
+
+"settings.logout.title" = "Log out?";
+"settings.logout.description" = "This will erase keys to the wallets. Make sure you have backed up your secret recovery phrases.";
+
+"settings.legal.title" = "Legal";
+"settings.legal.items.terms_of_service" = "Terms of service";
+"settings.legal.items.privacy_policy" = "Privacy policy";
+"settings.legal.items.montserrat_font" = "Montserrat font";
+"settings.legal.sections.licenses" = "Licences";
+
+"settings.purchases.title" = "Purchases";
+"settings.purchases.sections.visible" = "Visible";
+"settings.purchases.sections.hidden" = "Hidden";
+"settings.purchases.sections.spam" = "Spam";
+"settings.purchases.token.unnamed_collection" = "Unnamed collection";
+"settings.purchases.token.single_token" = "Single token";
+"settings.purchases.token.token_count.zero" = "tokens";
+"settings.purchases.token.token_count.one" = "token";
+"settings.purchases.token.token_count.few" = "tokens";
+"settings.purchases.token.token_count.many" = "tokens";
+"settings.purchases.token.token_count.other" = "tokens";
+
+"settings.purchases.details.title.single_token" = "Token details";
+"settings.purchases.details.title.collection" = "Collection details";
+"settings.purchases.details.button.hide_token" = "Hide token from wallet";
+"settings.purchases.details.button.show_token" = "Show token in wallet";
+"settings.purchases.details.button.hide_collection" = "Hide collection from wallet";
+"settings.purchases.details.button.show_collection" = "Show collection in wallet";
+"settings.purchases.details.button.not_spam" = "Not Spam";
+"settings.purchases.details.items.name" = "Name";
+"settings.purchases.details.items.collection_id" = "Collection ID";
+"settings.purchases.details.items.token_id" = "Token ID";
+
+"settings.notifications.title" = "Notifications";
+"settings.notifications.notifications_item.title" = "Push notifications";
+"settings.notifications.notifications_item.caption" = "Get notifications when you receive TON, tokens and NFTs. Notifications from connected apps.";
+"settings.notifications.notifications_disabled.title" = "Notifications are disabled";
+"settings.notifications.notifications_disabled.caption" = "You turned off notifications in\U00A0your phone’s settings. To\U00A0activate notifications, go to\U00A0Settings on\U00A0this device.";
+"settings.notifications.notifications_disabled.action_title" = "Settings";
+
+"settings.connected_apps.title" = "Apps";
+"settings.connected_apps.disconnect" = "Disconnect";
+"settings.connected_apps.disconnect_all_apps" = "Disconnect All Apps";
+"settings.connected_apps.apps" = "Apps";
+
+"settings.connected_apps.disconnect_all_title" = "Disconnect All Apps?";
+"settings.connected_apps.disconnect_item_title" = "Disconnect %@?";
+"settings.connected_apps.actions.disconnect" = "Disconnect";
+"settings.connected_apps.actions.cancel" = "Cancel";
+
+"settings.connected_apps.empty.title" = "No connected apps";
+
+"theme.title" = "Theme";
+"theme.options.system" = "System";
+"theme.options.dark" = "Dark";
+"theme.options.blue" = "Blue";
+
+"currency.title" = "Primary currency";
+
+"currency.items.jpy" = "Japanese Yen";
+"currency.items.usd" = "United States Dollar";
+"currency.items.eur" = "Euro";
+"currency.items.rub" = "Russian Ruble";
+"currency.items.aed" = "United Arab Emirates Dirham";
+"currency.items.kzt" = "Kazakhstani Tenge";
+"currency.items.uah" = "Ukrainian hryvnian";
+"currency.items.gbp" = "Great Britain Pound";
+"currency.items.chf" = "Swiss Franc";
+"currency.items.cny" = "China Yuan";
+"currency.items.krw" = "South Korean Won";
+"currency.items.idr" = "Indonesian Rupiah";
+"currency.items.inr" = "Indian Rupee";
+"currency.items.uzs" = "Uzbekistani sum";
+"currency.items.byn" = "Belarusian ruble";
+"currency.items.brl" = "Brazilian Real";
+"currency.items.try" = "Turkish Lira";
+"currency.items.ngn" = "Nigerian Naira";
+"currency.items.thb" = "Thai baht";
+"currency.items.bdt" = "Bangladeshi taka";
+"currency.items.cad" = "Canadian Dollar";
+"currency.items.ils" = "Israeli Sheqel";
+"currency.items.gel" = "Georgian lari";
+"currency.items.vhd" = "Vietnamese dong";
+"currency.items.ZAR" = "South African rand";
+"currency.items.ARS" = "Argentine peso";
+"currency.items.COP" = "Colombian peso";
+"currency.items.ETB" = "Ethiopian birr";
+"currency.items.KES" = "Kenyan shilling";
+"currency.items.UGX" = "Ugandan shilling";
+"currency.items.VES" = "Venezuelan bolívar";
+"currency.items.BTC" = "Bitcoin";
+"currency.items.TON" = "Toncoin";
+
+"backup.title" = "Backup";
+"backup.information.title" = "Manual";
+"backup.information.subtitle" = "Back up your wallet manually by writing down the recovery phrase.";
+"backup.balance.warning" = "Your balance is %@, and it's only protected by a recovery phrase you haven't written down yet. Backup the phrase to avoid losing funds in case of device issues.";
+"backup.done.title" = "Manual Backup On";
+"backup.done.subtitle" = "Last backup %@";
+
+"backup.manually.button" = "Back Up Manually";
+"backup.show_phrase.title" = "Show Recovery Phrase";
+
+"backup.warning.title" = "Attention";
+"backup.warning.caption" = "Please read the following carefully before viewing your recovery phrase.";
+"backup.warning.list.item1" = "Never enter your recovery phrase any other place than Tonkeeper to access your wallet.";
+"backup.warning.list.item2" = "Tonkeeper Support never asks for a recovery phrase.";
+"backup.warning.list.item3" = "Everybody with your recovery phrase can access your wallet.";
+
+"backup.show.title" = "Recovery phrase";
+"backup.show.caption" = "Write down these words with their numbers and store them in a safe place.";
+"backup.show.button.title" = "Copy";
+
+"backup.check.title" = "Recovery phrase";
+"backup.check.caption" = "Write down these words with their numbers and store them in a safe place.";
+"backup.check.button.title" = "Check Backup";
+
+"backup.check.input.title" = "Backup Check";
+"backup.check.input.caption" = "Let's see if you've got everything right. Enter words %d, %d, and %d.";
+"backup.check.input.button.title" = "Done";
+
+"security.title" = "Security";
+"security.use" = "Use %@";
+"security.change_passcode" = "Change Passcode";
+"security.unavailable_error" = "Biometry unavailable";
+"security.use_biometry_description" = "You can always unlock your wallet with a passcode.";
+"security.lock_screen" = "Lock Screen";
+"security.lock_screen_description" = "Require passcode to view wallet contents.";
+
+"wallet_buttons.send" = "Send";
+"wallet_buttons.receive" = "Receive";
+"wallet_buttons.scan" = "Scan";
+"wallet_buttons.buy" = "Buy TON";
+"wallet_buttons.swap" = "Swap";
+"wallet_buttons.stake" = "Stake";
+
+"send.title" = "Send";
+"send.recepient.placeholder" = "Address or name";
+"send.amount.placeholder" = "Amount";
+"send.remaining" = "Remaining";
+
+"send.comment.placeholder" = "Comment";
+"send.comment.description" = "Will be visible to everyone.";
+"send.comment.ascii_error" = "Use only ASCII characters: digits, latin alphabet letters and punctuation marks.";
+
+"send.required_comment.placeholder" = "Required comment";
+"send.required_comment.description" = "You must include the note from the exchange for transfer. Without it your funds will be lost.";
+
+"confirm_send.token_transfer.title" = "Confirm action";
+"confirm_send.token_transfer.transfer" = "Transfer %@";
+"confirm_send.fee" = "Fee";
+"confirm_send.refund" = "Refund";
+"confirm_send.wallet" = "Wallet";
+"confirm_send.amount" = "Amount";
+"confirm_send.comment" = "Comment";
+"confirm_send.recipient.title" = "Recipient";
+"confirm_send.recipient.address" = "Recipient address";
+"confirm_send.confirm_button" = "Confirm and send";
+"confirm_send.confirm" = "Confirm";
+"confirm_send.risk.total" = "Total: %@";
+"confirm_send.risk.total_nft" = "Total: %@ + %ld NFT";
+"confirm_send.risk.caption_without_nft" = "The total value of tokens that will be sent from your wallet. Refunds are not included in the total value.";
+"confirm_send.risk.nft_caption" = "The total value of tokens, excluding the cost of NFTs, that will be sent from your wallet. Refunds are not included in the total value.";
+"confirm_send.risk.action_button_title" = "OK";
+"confirm_send.failed_emulation_warning.title" = "After confirmation, anything can happen, including losing all your funds. All transactions are irreversible. We couldn’t emulate the transaction and don’t know what will happen next.";
+
+"customize_wallet.title" = "Customize your Wallet";
+"customize_wallet.description" = "Wallet name and icon are stored locally on your device.";
+"customize_wallet.input_placeholder" = "Wallet Name";
+"customize_wallet.default_wallet_name" = "Wallet";
+
+"connection_status.updating" = "Updating";
+"connection_status.no_internet" = "No Internet connection";
+"connection_status.updated_at" = "Updated %@";
+
+"token.unverified" = "Unverified token";
+"token.view_details" = "View details";
+
+"onboarding.caption" = "Create a new wallet or add an existing one";
+"onboarding.buttons.create_new" = "Create New Wallet";
+"onboarding.buttons.import_existing" = "Import Existing Wallet";
+
+"passcode.create" = "Create passcode";
+"passcode.reenter" = "Re-enter passcode";
+"passcode.enter" = "Enter passcode";
+"passcode.logout" = "Log Out";
+"passcode.logout_confirmation_title" = "🚧 🚨🚨🚨 🚧\nSign Out of All Wallets?";
+"passcode.logout_confirmation_description" = "This will erase keys to all wallets. Make sure you have backed up your recovery phrases.";
+
+"import_wallet.title" = "Enter recovery phrase";
+"import_wallet.description" = "To restore access to your wallet, enter the 24 or 12 secret recovery words given to you when you created your wallet.";
+"import_wallet.set_12_words" = "12 words";
+"import_wallet.set_24_words" = "24 words";
+
+"choose_wallets.title" = "Choose Wallets";
+"choose_wallets.description" = "Choose wallets you want to add.";
+"choose_wallets.tokens" = "tokens";
+"choose_wallets.alreadyAdded" = "Already added";
+
+"finish_setup.title" = "Finish setting up";
+"finish_setup.setup_biometry" = "Use %@ to approve transactions";
+"finish_setup.biometry_unavailable" = "Biometry unavailable";
+"finish_setup.backup" = "Back up the wallet recovery phrase";
+
+"wallets_list.title" = "Wallets list";
+"wallets_list.add_wallet" = "Add Wallet";
+
+"add_wallet.title" = "Add Wallet";
+"add_wallet.description" = "Create a new wallet or add an existing one.";
+
+"add_wallet.items.new_wallet.title" = "New Wallet";
+"add_wallet.items.new_wallet.subtitle" = "Create new wallet";
+
+"add_wallet.items.existing_wallet.title" = "Existing Wallet";
+"add_wallet.items.existing_wallet.subtitle" = "Import wallet with 12 or 24 secret recovery words";
+
+"add_wallet.items.watch_only.title" = "Watch Account";
+"add_wallet.items.watch_only.subtitle" = "For monitor wallet activity without recovery phrase";
+
+"add_wallet.items.testnet.title" = "Testnet Account";
+"add_wallet.items.testnet.subtitle" = "Import wallet with a 24 secret recovery words to Testnet";
+
+"add_wallet.items.pair_signer.title" = "Pair Signer";
+"add_wallet.items.pair_signer.subtitle" = "A higher level of control and security";
+
+"add_wallet.items.pair_keystone.title" = "Pair with Keystone";
+"add_wallet.items.pair_keystone.subtitle" = "A high level of security with an AIR-GAP hardware wallet";
+
+"add_wallet.items.pair_ledger.title" = "Pair with Ledger";
+"add_wallet.items.pair_ledger.subtitle" = "Hardware module, Bluetooth, limited TON features";
+
+"scanner.title" = "Scan QR code";
+
+"signer.scan.subtitle" = "Open Signer » Select the required key » Scan QR code";
+"signer.scan.open_signer_button" = "Open Signer on this device";
+
+"keystone.scan.subtitle" = "Open Keystone » Connect Software Wallet » Tonkeeper";
+"keystone.scan.about_keystone_button" = "About Keystone";
+
+"chart.price" = "Price";
+
+"periods.hour" = "H";
+"periods.day" = "D";
+"periods.week" = "W";
+"periods.month" = "M";
+"periods.half_year" = "6M";
+"periods.year" = "Y";
+
+"wallet_tags.watch_only" = "Watch only";
+
+"balance_header.your_address" = "Your address: ";
+"balance_header.address" = "Address: ";
+
+"balance_list.staking_item.title" = "Staked";
+"balance_list.staking_item.comment.ready" = "%@ TON ready.\nTap to collect.";
+"balance_list.staking_item.comment.staked" = "%@ TON staked";
+"balance_list.staking_item.comment.unstaked" = "%@ TON unstaked";
+"balance_list.staking_item.comment.time_estimate" = "in %@";
+"balance_list.staking_item.comment.after_end_of_cycle" = "after the end of the cycle";
+
+"receive.title" = "Receive %@";
+"receive.description" = "Send only %@ and tokens in TON network to this address, or you might lose your funds.";
+
+"watch_account.title" = "Watch Account";
+"watch_account.description" = "Monitor wallet activity without recovery phrase. You will be notified of any transactions from this wallet.";
+"watch_account.placeholder" = "Address or name";
+
+"event_details.sender_address" = "Sender address";
+"event_details.sender" = "Sender";
+"event_details.fee" = "Fee";
+"event_details.refund" = "Refund";
+"event_details.recipient" = "Recipient";
+"event_details.recipient_address" = "Recipient address";
+"event_details.comment" = "Comment";
+"event_details.sent_on" = "Sent on %@";
+"event_details.received_on" = "Received on %@";
+"event_details.purchased_on" = "Purchased on %@";
+"event_details.renewed_on" = "Renewed on %@";
+"event_details.burned_on" = "Burned on %@";
+"event_details.swapped_on" = "Swapped on %@";
+"event_details.staked_on" = "Staked on %@";
+"event_details.unstake_on" = "Unstake on %@";
+"event_details.called_contract_on" = "Called contract on %@";
+"event_details.received" = "Received";
+"event_details.sent" = "Sent";
+"event_details.transaction" = "Transaction ";
+"event_details.domain_renew" = "Domain Renew";
+"event_details.payload" = "Payload";
+"event_details.unstake_request" = "Unstake Request";
+"event_details.unstake_amount" = "Unstake amount";
+"event_details.wallet_initialized" = "Wallet initialized";
+"event_details.unknown" = "Unknown";
+"event_details.unknown_description" = "Something happened but we don't understand what.";
+
+"action_types.future.send" = "Send";
+"action_types.future.receive" = "Receive";
+"action_types.sent" = "Sent";
+"action_types.burned" = "Burned";
+"action_types.received" = "Received";
+"action_types.stake" = "Stake";
+"action_types.unstake" = "Unstake";
+"action_types.unstake_request" = "Unstake Request";
+"action_types.swap" = "Swap";
+"action_types.spam" = "Spam";
+"action_types.bounced" = "Bounced";
+"action_types.subscribed" = "Subscribed";
+"action_types.unsubscribed" = "Unsubscribed";
+"action_types.contract_exec" = "Call contract";
+"action_types.nft_collection_deploy" = "NFT сollection creation";
+"action_types.nft_deploy" = "NFT creation";
+"action_types.nft_sale_removal" = "Removal from sale";
+"action_types.nft_purchase" = "NFT purchase";
+"action_types.bid" = "Bid";
+"action_types.put_up_auction" = "Put up for auction";
+"action_types.end_auction" = "End of auction";
+"action_types.domain_renew" = "Renew Domain";
+"action_types.unknown" = "Unknown";
+"action_types.wallet_initialize" = "Wallet initialized";
+
+"ledger_connect.title" = "Connect Ledger";
+"ledger_connect.steps.bluetooth_connect.description" = "Connect Ledger to your device via Bluetooth";
+"ledger_connect.steps.ton_app.description" = "Unlock it and open TON App";
+"ledger_connect.steps.ton_app.link" = "Install TON App";
+
+"ledger_confirm.title" = "Confirm Action";
+"ledger_confirm.steps.bluetooth_connect.description" = "Connect Ledger to your device via Bluetooth";
+"ledger_confirm.steps.ton_app.description" = "Unlock it and open TON App";
+"ledger_confirm.steps.confirm.description" = "Confirm your transaction on Ledger";
+"ledger_confirm.steps.confirm.description_numerated" = "Confirm transaction #%@ on Ledger";
+"ledger_confirm.steps.confirm_proof.description" = "Verify domain on Ledger";
+
+"ledger_version_update.title" = "Update TON app in Ledger to the %@ version";
+"ledger_version_update.caption" = "This type of transaction is not supported in your current application version.";
+
+"bluetooth.permissions_alert.title" = "Bluetooth Permissions";
+"bluetooth.permissions_alert.message" = "Please enable Bluetooth permissions in your settings to use this feature";
+"bluetooth.permissions_alert.open_settings" = "Open Settings";
+
+"bluetooth.powered_off_alert.title" = "Bluetooth is off";
+"bluetooth.powered_off_alert.message" = "Please turn on Bluetooth to use this feature";
+"bluetooth.powered_off_alert.open_settings" = "Open Settings";
+
+"sign_out_full.title" = "🚧 🚨🚨🚨 🚧\nSign Out of All Wallets?";
+"sign_out_full.description" = "This will erase keys to all wallets. Make sure you have backed up your recovery phrases.";
+
+"sign_out_warning.title" = "Sign Out";
+"sign_out_warning.caption" = "Wallet keys will be erased from this device.";
+"sign_out_warning.tick_description" = "I have a backup copy of the recovery phrase for ";
+"sign_out_warning.tick_back_up" = "Back up";
+
+"delete_wallet_warning.title" = "Delete Wallet Data";
+"delete_wallet_warning.caption" = "Wallet keys and all personal data will be erased from this device.";
+"delete_wallet_warning.tick_description" = "I have a backup copy of the recovery phrase for ";
+"delete_wallet_warning.tick_back_up" = "Back up";
+"delete_wallet_warning.button" = "Delete Wallet Data";
+
+"home_screen_configuration.title" = "Home Screen";
+"home_screen_configuration.sections.pinned" = "Pinned";
+"home_screen_configuration.sections.all_assets" = "All Assets";
+"home_screen_configuration.sections.sorted_by_price" = "Sorted by Price";
+
+"nft_details.single_nft" = "Single NFT";
+"nft_details.details" = "Details";
+"nft_details.view_in_explorer" = "View in explorer";
+"nft_details.owner" = "Owner";
+"nft_details.expiration_date" = "Expiration date";
+"nft_details.contract_address" = "Contract address";
+"nft_details.properties" = "Properties";
+"nft_details.transfer" = "Transfer";
+"nft_details.linked_with" = "Linked with %@";
+"nft_details.linked_domain" = "Link domain";
+"nft_details.renew_until" = "Renew until %@";
+"nft_details.expires_in_days" = "Expires in %@ days";
+"nft_details.unverified_nft" = "Unverified NFT";
+"nft_details.unverified_nft.unverified_description" = "NFT may not be safe to use for one\U00A0of\U00A0the following reasons.";
+"nft_details.unverified_nft.used_for_spam_description" = "•\tUsed for spam. Employed for sending unwanted and often irrelevant messages at\U00A0scale.";
+"nft_details.unverified_nft.used_for_scam_description" = "•\tUsed for scam. NFT's name, description or image can lead users into deception.";
+"nft_details.unverified_nft.little_info_description" = "•\tWe know little about the author and history of this NFT.";
+"nft_details.unverified_nft.report_spam" = "Report Spam";
+"nft_details.unverified_nft.not_spam" = "Not Spam";
+"nft_details.about_collection" = "About collection";
+"nft_details.domain_on_sale_description" = "Domain is on sale at the marketplace now. For transfer, you should remove it from sale first.";
+"nft_details.nft_on_sale_description" = "NFT is on sale at the marketplace now. For transfer, you should remove it from sale first.";
+"nft_details.actions.report_spam" = "Report Spam";
+"nft_details.actions.not_spam" = "Not Spam";
+
+"buy_list_popup.you_are_opening_external_app" = "You are opening an external app not operated by Tonkeeper.";
+
+"ugly_buy_list.buy" = "Buy";
+
+"settings_list_notifications_configurator.connectedAppsTitle" = "Apps";
+"settings_list_notifications_configurator.connectedAppsSectionCaption" = "Notifications from connected apps in your activity";
+
+"settings_list_security_configurator.face_id" = "Face ID";
+"settings_list_security_configurator.touch_id" = "Touch ID";
+
+"signer_sign.step_one" = "Step 1";
+"signer_sign.step_one_description" = "Scan the QR code with Signer";
+"signer_sign.step_two" = "Step 2";
+"signer_sign.step_two_description" = "Confirm your transaction in Signer";
+"signer_sign.step_three" = "Step 3";
+"signer_sign.step_three_description" = "Scan signed transaction QR code from Signer";
+"signer_sign.transaction" = "Transaction";
+
+"keystone_sign.step_one" = "Step 1";
+"keystone_sign.step_one_description" = "Scan the QR code with Keystone";
+"keystone_sign.step_two" = "Step 2";
+"keystone_sign.step_two_description" = "Confirm your transaction in Keystone";
+"keystone_sign.step_three" = "Step 3";
+"keystone_sign.step_three_description" = "Scan signed transaction QR code from Keystone";
+"keystone_sign.transaction" = "Transaction";
+
+"apy" = "APY";
+"max_apy" = "MAX APY";
+
+"staking_list.minimal_deposit" = "Minimal Deposit";
+
+"staking_balance_details.minimal_deposit" = "Minimal Deposit";
+"staking_balance_details.description" = "Staking is based on smart contracts by third parties. Tonkeeper is not responsible for staking experience.";
+"staking_balance_details.jetton_button_description" = "When you stake TON in a Tonstakers pool, you receive a token called tsTON that represents your share in the pool. As the pool accumulates profits, your tsTON represents larger amount of TON.";
+"staking_balance_details.pending_stake" = "Pending Stake";
+"staking_balance_details.pending_unstake" = "Pending Unstake";
+"staking_balance_details.unstake_ready" = "Unstake ready";
+"staking_balance_details.after_end_of_cycle" = "after the end of the cycle";
+"staking_balance_details.tap_to_collect" = "Tap to collect";
+"staking_balance_details.stake" = "Stake";
+"staking_balance_details.unstake" = "Unstake";
+
+"staking.title" = "Stake";
+
+"unstaking.title" = "Unstake";
+
+"staking_deposit_input.liquid_staking" = "Liquid Staking";
+"staking_deposit_input.other" = "Other";
+"staking_deposit_input.continue_title" = "Continue";
+"staking_deposit_input.options" = "Options";
+
+"staking_deposit_pool_picker.max_apy" = "MAX APY";
+"staking_deposit_pool_picker.apy" = "APY";
+"staking_deposit_pool_picker.options" = "Options";
+"staking_deposit_pool_picker.liquid_staking" = "Liquid Staking";
+"staking_deposit_pool_picker.other" = "Other";
+
+"staking_list.max_apy" = "MAX APY";
+"staking_list.apy" = "APY";
+"staking_list.minimum_deposit_description" = "Min. deposit %@";
+
+"staking_pool_details.max_apy" = "MAX APY";
+"staking_pool_details.apy" = "APY";
+"staking_pool_details.minimal_deposit" = "Minimal Deposit";
+"staking_pool_details.description" = "Staking is based on smart contracts by third parties. Tonkeeper is not responsible for staking experience.";
+"staking_pool_details.choose" = "Choose";
+
+"ton_connect_mapper.connect_to" = "Connect to ";
+"ton_connect_mapper.requesting_capture" = "%@ is requesting access to your wallet address%@";
+"ton_connect_mapper.allow_notifications" = "Allow Notifications";
+
+"ton_connect.connect_wallet" = "Connect wallet";
+"ton_connect.allow_notifications" = "Allow notifications";
+"ton_connect.open_browser_and_connect" = "Open Browser and Connect";
+"ton_connect.sure_check_service_address" = "Be sure to check the service address before connecting the wallet.";
+"ton_connect.sure_check_service_address_connect_without_checking" = "Be sure to check the service address before connecting · Connect without additional check in Browser";
+
+"wallet_balance_list.join_channel" = "Join Tonkeeper channel";
+"wallet_balance_list.transaction_notifications" = "Enable transaction notifications";
+"wallet_balance_list.manage_button.title" = "Manage";
+
+"buy_sell_list.buy" = "Buy";
+"buy_sell_list.sell" = "Sell";
+
+"w5_stories.gasless.title" = "Gasless USDT Transfers";
+"w5_stories.gasless.subtitle" = "Send USDT without having TON – transaction fees will be covered by a few cents of USDT automatically.";
+"w5_stories.messages.title" = "Up to 255 Operations in One Transaction";
+"w5_stories.messages.subtitle" = "W5 increases the number of simultaneous operations from 4 to 255, which can save on fee costs.";
+"w5_stories.phrase.title" = "Recovery Phrase Does Not Change";
+"w5_stories.phrase.subtitle" = "Old accounts and W5 use the same recovery phrase – when restoring accounts on a new device, both old and new will appear automatically.";
+"w5_stories.phrase.button" = "Add W5 Wallet";
+
+"decrypt_comment_popup.title" = "Encrypted comment";
+"decrypt_comment_popup.caption" = "The comment is encrypted by sender and can only be decrypted by you. Please be careful with the content and beware of scams.";
+"decrypt_comment_popup.button" = "Decrypt the comment";
+
+"tick.do_not_show_again" = "Do not show again";
+
+// MARK: -  Insufficient Funds
+
+"insufficientFunds.title" = "Insufficient Funds";
+"insufficientFunds.Wallet.title" = "Insufficient Funds in\U00A0wallet %@";
+"insufficientFunds.to_be_paid_your_balance" = "To be paid: %@.\nYour balance: %@.";
+"insufficientFunds.recharge_wallet" = "Recharge Wallet";
+"insufficientFunds.insufficient_balance" = "Insufficient balance";
+"insufficientFunds.buy_token_title" = "Buy %@";
+"insufficientFunds.fee_required" = "Required for blockchain fees: %@ TON.\nYour balance: %@ TON.";
+"insufficientFunds.unknown_token" = "Unknown token";
+
+"transaction_confirmation.confirm_action" = "Confirm action";
+"transaction_confirmation.wallet" = "Wallet";
+"transaction_confirmation.recipient" = "Recipient";
+"transaction_confirmation.fee" = "Fee";
+"transaction_confirmation.amount" = "Amount";
+"transaction_confirmation.unstake_amount" = "Unstake amount";
+"transaction_confirmation.unstake" = "Unstake";
+"transaction_confirmation.deposit" = "Deposit";
+"transaction_confirmation.comment" = "Comment";
+"transaction_confirmation.apy" = "APY";
+"transaction_confirmation.battery" = "Will be paid with Battery";
+"transaction_confirmation.buttons.confirm_and_send" = "Confirm and Send";
+"transaction_confirmation.buttons.confirm_and_stake" = "Confirm and Stake";
+"transaction_confirmation.buttons.confirm_and_unstake" = "Confirm and Unstake";
+"transaction_confirmation.buttons.confirm_and_collect" = "Confirm and Collect";
+"transaction_confirmation.tap_to_pay" = "Tap to pay in %@";
+
+"battery.refill.title" = "Tonkeeper Battery";
+"battery.refill.empty_caption" = "Swap via Tonkeeper, send tokens and unstake TON.";
+"battery.refill.supported_transactions" = "Supported transactions";
+"battery.refill.settings.title" = "Battery Settings";
+"battery.refill.settings.caption" = "Will be paid: ";
+"battery.refill.settings.caption.items.swaps" = "swaps";
+"battery.refill.settings.caption.items.token_transfers" = "token transfers";
+"battery.refill.settings.caption.items.NFT_transfers" = "NFT transfers";
+"battery.refill.iap.items.large" = "Large";
+"battery.refill.iap.items.medium" = "Medium";
+"battery.refill.iap.items.small" = "Small";
+"battery.refill.crypto.recharge" = "Recharge with";
+"battery.refill.gift.title" = "Battery Gift";
+"battery.refill.gift.caption" = "Share with friends";
+"battery.refill.charges_history.title" = "Charges history";
+"battery.refill.charges_history.caption" = "Recharges and refunds";
+"battery.refill.footer.description" = "One charge covers the average transaction fee. Some transactions may cost more.";
+"battery.refill.footer.restore_purchase" = "Restore purchases.";
+"battery.refill.charges.zero" = "charges";
+"battery.refill.charges.one" = "charge";
+"battery.refill.charges.few" = "charges";
+"battery.refill.charges.many" = "charges";
+"battery.refill.charges.other" = "charges";
+"battery.refill.promocode" = "Promo Code";
+"battery.refill.toast.recharged" = "Battery recharged";
+
+"battery.settings.title" = "Battery Settings";
+"battery.settings.caption" = "Selected transactions will be paid by Tonkeeper Battery.";
+"battery.settings.items.swaps.title" = "Swaps via Tonkeeper";
+"battery.settings.items.swaps.caption" = "per swap";
+"battery.settings.items.token.title" = "Token transfers";
+"battery.settings.items.token.caption" = "per transfer";
+"battery.settings.items.nft.title" = "NFT transfers";
+"battery.settings.items.nft.caption" = "per transfer";
+
+"battery.recharge.title" = "Charge";
+"battery.recharge.gift_title" = "Gift";
+"battery.recharge.сustom_input.title" = "Other";
+"battery.recharge.сustom_input.caption" = "Enter amount manually";
+"battery.recharge.toast.success" = "Battery will charge in a few minutes";
+
+"staking_input.available_balance" = "Available: %@";
+"staking_input.insufficient_balance" = "Insufficient balance";
+"staking_input.minimum_balance" = "Minimum %@";
+
+"sign_data.title" = "Sign data";
+"sign_data.caption" = "Carefully review the message, and if you agree,\nsign it.";
+"sign_data.binary_content.title" = "Binary content";
+"sign_data.binary_content.subtitle" = "You are signing blindly. Sign only from trusted sources.";
+"sign_data.slider.title" = "Sign";
+"sign_data.slider.subtitle" = "Swipe right";
+
+"dapp.disconnect_toast.title" = "Disconnect";
+"dapp.disconnect_toast.button" = "Disconnect";

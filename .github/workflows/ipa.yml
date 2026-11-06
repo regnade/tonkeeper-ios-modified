@@ -1,0 +1,129 @@
+name: Build IPA
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ipa:
+    name: Build Tonkeeper IPA
+    runs-on: macos-15
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Create Firebase plists
+        run: |
+          set -euo pipefail
+          DIRS=(
+            Tonkeeper/Resources/Firebase/Tonkeeper
+            Tonkeeper/Resources/Firebase/TonkeeperXDebug
+            Tonkeeper/Resources/Firebase/TonkeeperXRelease
+            Tonkeeper/Resources/Firebase/TonkeeperUK
+            Tonkeeper/Resources/Firebase/Debug
+            Tonkeeper/Resources/Firebase/Release
+          )
+          for dir in "${DIRS[@]}"; do
+            mkdir -p "$dir"
+            cat > "$dir/GoogleService-Info.plist" <<'PLIST'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>API_KEY</key>
+  <string>placeholder</string>
+  <key>GCM_SENDER_ID</key>
+  <string>0</string>
+  <key>GOOGLE_APP_ID</key>
+  <string>1:0:ios:0</string>
+  <key>BUNDLE_ID</key>
+  <string>com.jbig.tonkeeper</string>
+  <key>PROJECT_ID</key>
+  <string>placeholder</string>
+  <key>STORAGE_BUCKET</key>
+  <string>placeholder.appspot.com</string>
+  <key>IS_ADS_ENABLED</key>
+  <false/>
+  <key>IS_ANALYTICS_ENABLED</key>
+  <false/>
+  <key>IS_APPINVITE_ENABLED</key>
+  <false/>
+  <key>IS_GCM_ENABLED</key>
+  <false/>
+  <key>IS_SIGNIN_ENABLED</key>
+  <false/>
+  <key>PLIST_VERSION</key>
+  <string>1</string>
+</dict>
+</plist>
+PLIST
+          done
+
+      - name: Resolve Swift packages
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -resolvePackageDependencies \
+            -project Tonkeeper.xcodeproj \
+            -scheme Tonkeeper
+
+      - name: Build iOS app (unsigned)
+        run: |
+          set -euo pipefail
+          mkdir -p build
+          xcodebuild \
+            -project Tonkeeper.xcodeproj \
+            -scheme Tonkeeper \
+            -configuration TonkeeperRelease \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            DEVELOPMENT_TEAM="" \
+            build
+
+      - name: Package IPA
+        run: |
+          set -euo pipefail
+          APP="$(find build/DerivedData/Build/Products -type d -name '*.app' -path '*iphoneos*' | head -n 1)"
+          if [[ -z "${APP}" ]]; then
+            echo "Tonkeeper.app not found under iphoneos products"
+            find build/DerivedData/Build/Products -maxdepth 3 -type d -print || true
+            exit 1
+          fi
+          echo "Using app: ${APP}"
+          rm -rf Payload
+          mkdir Payload
+          cp -R "${APP}" Payload/
+          zip -r Tonkeeper-5.1.1.ipa Payload
+          ls -lh Tonkeeper-5.1.1.ipa
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tonkeeper-5.1.1.ipa
+          path: Tonkeeper-5.1.1.ipa
+          if-no-files-found: error
+
+      - name: Create GitHub Release
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ipa-5.1.1-${{ github.run_number }}
+          name: IPA 5.1.1 (${{ github.run_number }})
+          files: Tonkeeper-5.1.1.ipa
+          generate_release_notes: true

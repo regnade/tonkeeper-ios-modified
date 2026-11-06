@@ -1,0 +1,30 @@
+import Foundation
+import TonAPI
+import TonSwift
+
+extension JettonInfo {
+  init(jettonPreview: TonAPI.JettonPreview, extensions: [String]? = nil) throws {
+    let tokenAddress = try Address.parse(jettonPreview.address)
+    address = tokenAddress
+    fractionDigits = jettonPreview.decimals
+    name = jettonPreview.name
+    imageURL = URL(string: jettonPreview.image)
+    
+    isTransferable = !(extensions?.contains("non_transferable") ?? false)
+    hasCustomPayload = extensions?.contains("custom_payload") ?? false
+    
+    let verification: JettonInfo.Verification
+    switch jettonPreview.verification {
+    case .whitelist:
+      verification = .whitelist
+    case .blacklist:
+      verification = .blacklist
+    case ._none:
+      verification = .none
+    case .unknownDefaultOpenApi:
+      verification = .none
+    }
+    symbol = verification == .blacklist ? "SCAM" : jettonPreview.symbol
+    self.verification = verification
+  }
+}

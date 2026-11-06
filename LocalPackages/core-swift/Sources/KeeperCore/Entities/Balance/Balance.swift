@@ -1,0 +1,89 @@
+import Foundation
+import TonSwift
+import BigInt
+
+public struct Balance: Codable, Equatable {
+  public let tonBalance: TonBalance
+  public let jettonsBalance: [JettonBalance]
+  
+  public init(tonBalance: TonBalance,
+              jettonsBalance: [JettonBalance]) {
+    self.tonBalance = tonBalance
+    self.jettonsBalance = jettonsBalance
+  }
+}
+
+public extension Balance {
+  var isEmptyJettonsBalance: Bool {
+    jettonsBalance.filter({ !$0.quantity.isZero && $0.item.jettonInfo.verification != .blacklist }).isEmpty
+  }
+  var isEmpty: Bool {
+    tonBalance.amount == 0 && isEmptyJettonsBalance
+  }
+}
+
+public struct TonBalance: Codable, Equatable {
+  public let amount: Int64
+  
+  public init(amount: Int64) {
+    self.amount = amount
+  }
+}
+
+public struct JettonBalance: Codable, Equatable {
+  public let item: JettonItem
+  public let quantity: BigUInt
+  public let rates: [Currency: Rates.Rate]
+  
+  public init(item: JettonItem, 
+              quantity: BigUInt,
+              rates: [Currency : Rates.Rate]) {
+    self.item = item
+    self.quantity = quantity
+    self.rates = rates
+  }
+}
+
+public struct JettonItem: Codable, Equatable, Hashable {
+  public let jettonInfo: JettonInfo
+  public let walletAddress: Address
+}
+
+public struct TonInfo {
+  public static let name = "Toncoin"
+  public static let symbol = "TON"
+  public static let fractionDigits = 9
+  private init() {}
+}
+
+public struct JettonInfo: Codable, Equatable, Hashable {
+  public enum Verification: Codable {
+    case none
+    case whitelist
+    case blacklist
+  }
+  
+  public let isTransferable: Bool
+  public let hasCustomPayload: Bool
+  public let address: Address
+  public let fractionDigits: Int
+  public let name: String
+  public let symbol: String?
+  public let verification: Verification
+  public let imageURL: URL?
+  
+  public static func == (lhs: Self, rhs: Self) -> Bool {
+    lhs.address == rhs.address
+  }
+  
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(address)
+  }
+}
+
+public enum JettonMasterAddress {
+  public static let tonUSDT = try! Address.parse("0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe")
+  public static let tonstakers = try! Address.parse("0:bdf3fa8098d129b54b4f73b5bac5d1e1fd91eb054169c3916dfc8ccd536d1000")
+  public static let NOT = try! Address.parse("0:2f956143c461769579baef2e32cc2d7bc18283f40d20bb03e432cd603ac33ffc")
+  public static let HMSTR = try! Address.parse("0:09f2e59dec406ab26a5259a45d7ff23ef11f3e5c7c21de0b0d2a1cbe52b76b3d")
+}
