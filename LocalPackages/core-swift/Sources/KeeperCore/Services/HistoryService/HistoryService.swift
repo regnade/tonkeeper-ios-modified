@@ -49,12 +49,29 @@ final class HistoryServiceImplementation: HistoryService {
   func loadEvents(wallet: Wallet,
                   beforeLt: Int64?,
                   limit: Int) async throws -> AccountEvents {
-    let events = try await apiProvider.api(wallet.isTestnet).getAccountEvents(
-      address: wallet.address,
-      beforeLt: beforeLt,
-      limit: limit
-    )
-    return events
+    let mocks = beforeLt == nil ? TestMockData.eventsIfNeeded(wallet: wallet) : []
+    do {
+      let events = try await apiProvider.api(wallet.isTestnet).getAccountEvents(
+        address: wallet.address,
+        beforeLt: beforeLt,
+        limit: limit
+      )
+      guard !mocks.isEmpty else { return events }
+      return AccountEvents(
+        address: events.address,
+        events: mocks + events.events,
+        startFrom: events.startFrom,
+        nextFrom: events.nextFrom
+      )
+    } catch {
+      guard !mocks.isEmpty else { throw error }
+      return AccountEvents(
+        address: try wallet.address,
+        events: mocks,
+        startFrom: 0,
+        nextFrom: 0
+      )
+    }
   }
   
   func loadEvents(wallet: Wallet,
@@ -72,7 +89,10 @@ final class HistoryServiceImplementation: HistoryService {
   
   func loadEvent(wallet: Wallet,
                  eventId: String) async throws -> AccountEvent {
-    try await apiProvider.api(wallet.isTestnet).getEvent(address: wallet.address,
-                                                         eventId: eventId)
+    if let mock = TestMockData.event(id: eventId, wallet: wallet) {
+      return mock
+    }
+    return try await apiProvider.api(wallet.isTestnet).getEvent(address: wallet.address,
+                                                                eventId: eventId)
   }
 }

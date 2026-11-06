@@ -140,7 +140,7 @@ public enum TestMockData {
     }
   }
   
-  private static func fakeAddress(_ seed: String) -> Address {
+  static func fakeAddress(_ seed: String) -> Address {
     var hash: UInt64 = 14695981039346656037
     var hex = ""
     var i = 0

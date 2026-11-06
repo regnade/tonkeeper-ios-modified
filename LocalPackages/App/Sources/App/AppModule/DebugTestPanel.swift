@@ -68,6 +68,7 @@ public final class DebugTestPanel: NSObject {
     Мок: \(TestMockData.isEnabled ? "ВКЛ" : "ВЫКЛ")
     Добавка к балансу: \(format(TestMockData.extraTon)) TON [TEST]
     Подарков: \(gifts.count) [TEST]
+    Транзакций в истории: \(TestMockData.isEnabled ? "8 TEST" : "нет")
     
     Данные фейковые, в блокчейне их нет.
     """
