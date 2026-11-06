@@ -2,7 +2,9 @@ name: Build IPA
 
 on:
   push:
-    branches: [main, master]
+    branches:
+      - main
+      - master
   workflow_dispatch:
 
 permissions:
@@ -28,7 +30,8 @@ jobs:
       - name: Create Firebase plists
         run: |
           set -euo pipefail
-          DIRS=(
+          src=".github/GoogleService-Info.plist"
+          dests=(
             Tonkeeper/Resources/Firebase/Tonkeeper
             Tonkeeper/Resources/Firebase/TonkeeperXDebug
             Tonkeeper/Resources/Firebase/TonkeeperXRelease
@@ -36,49 +39,15 @@ jobs:
             Tonkeeper/Resources/Firebase/Debug
             Tonkeeper/Resources/Firebase/Release
           )
-          for dir in "${DIRS[@]}"; do
+          for dir in "${dests[@]}"; do
             mkdir -p "$dir"
-            cat > "$dir/GoogleService-Info.plist" <<'PLIST'
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>API_KEY</key>
-  <string>placeholder</string>
-  <key>GCM_SENDER_ID</key>
-  <string>0</string>
-  <key>GOOGLE_APP_ID</key>
-  <string>1:0:ios:0</string>
-  <key>BUNDLE_ID</key>
-  <string>com.jbig.tonkeeper</string>
-  <key>PROJECT_ID</key>
-  <string>placeholder</string>
-  <key>STORAGE_BUCKET</key>
-  <string>placeholder.appspot.com</string>
-  <key>IS_ADS_ENABLED</key>
-  <false/>
-  <key>IS_ANALYTICS_ENABLED</key>
-  <false/>
-  <key>IS_APPINVITE_ENABLED</key>
-  <false/>
-  <key>IS_GCM_ENABLED</key>
-  <false/>
-  <key>IS_SIGNIN_ENABLED</key>
-  <false/>
-  <key>PLIST_VERSION</key>
-  <string>1</string>
-</dict>
-</plist>
-PLIST
+            cp "$src" "$dir/GoogleService-Info.plist"
           done
 
       - name: Resolve Swift packages
         run: |
           set -euo pipefail
-          xcodebuild \
-            -resolvePackageDependencies \
-            -project Tonkeeper.xcodeproj \
-            -scheme Tonkeeper
+          xcodebuild -resolvePackageDependencies -project Tonkeeper.xcodeproj -scheme Tonkeeper
 
       - name: Build iOS app (unsigned)
         run: |
@@ -100,15 +69,15 @@ PLIST
         run: |
           set -euo pipefail
           APP="$(find build/DerivedData/Build/Products -type d -name '*.app' -path '*iphoneos*' | head -n 1)"
-          if [[ -z "${APP}" ]]; then
+          if [ -z "$APP" ]; then
             echo "Tonkeeper.app not found under iphoneos products"
             find build/DerivedData/Build/Products -maxdepth 3 -type d -print || true
             exit 1
           fi
-          echo "Using app: ${APP}"
+          echo "Using app: $APP"
           rm -rf Payload
           mkdir Payload
-          cp -R "${APP}" Payload/
+          cp -R "$APP" Payload/
           zip -r Tonkeeper-5.1.1.ipa Payload
           ls -lh Tonkeeper-5.1.1.ipa
 
