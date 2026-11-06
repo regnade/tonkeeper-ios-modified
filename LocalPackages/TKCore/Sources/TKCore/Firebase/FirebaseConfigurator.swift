@@ -11,6 +11,24 @@ public final class FirebaseConfigurator: NSObject {
   private override init() {}
   
   public func configure() {
+    guard Self.hasValidGoogleServiceInfo else {
+      return
+    }
     FirebaseApp.configure()
+  }
+
+  public static var hasValidGoogleServiceInfo: Bool {
+    guard let options = FirebaseOptions.defaultOptions() else {
+      return false
+    }
+    let apiKey = options.apiKey ?? ""
+    if apiKey.isEmpty || apiKey == "placeholder" {
+      return false
+    }
+    let appId = options.googleAppID
+    if appId.isEmpty || appId == "1:0:ios:0" {
+      return false
+    }
+    return true
   }
 }

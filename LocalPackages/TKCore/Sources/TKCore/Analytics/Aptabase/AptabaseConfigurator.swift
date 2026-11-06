@@ -8,8 +8,11 @@ public final class AptabaseConfigurator {
   private init() {}
   
   public func configure() {
+    guard let appKey = InfoProvider.aptabaseKey(), !appKey.isEmpty else {
+      return
+    }
     Aptabase.shared.initialize(
-      appKey: InfoProvider.aptabaseKey()!,
+      appKey: appKey,
       with: InitOptions(host: InfoProvider.aptabaseEndpoint())
     )
   }

@@ -17,6 +17,7 @@ let package = Package(
     .target(
       name: "TKFeatureFlags",
     dependencies: [
+      .product(name: "FirebaseCore", package: "firebase-ios-sdk"),
       .product(name: "FirebaseRemoteConfig", package: "firebase-ios-sdk"),
     ]),
   ]

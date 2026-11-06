@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseCore
 import FirebaseRemoteConfig
 
 public enum FeatureFlag: String, CaseIterable {
@@ -32,37 +33,46 @@ public protocol TKFeatureFlagsProvider {
 }
 
 final class FirebaseFeatureFlagsProvider: TKFeatureFlagsProvider {
+  private var isFirebaseReady: Bool { FirebaseApp.app() != nil }
+
   var isSwapDisable: Bool {
-    RemoteConfig.remoteConfig().configValue(forKey: FeatureFlag.isSwapDisable.key).boolValue
+    remoteBool(FeatureFlag.isSwapDisable)
   }
   var isCountryPickerDisable: Bool {
-    RemoteConfig.remoteConfig().configValue(forKey: FeatureFlag.isCountryPickerDisable.key).boolValue
+    remoteBool(FeatureFlag.isCountryPickerDisable)
   }
   var isStakingDisable: Bool {
-    RemoteConfig.remoteConfig().configValue(forKey: FeatureFlag.isStakingDisable.key).boolValue
+    remoteBool(FeatureFlag.isStakingDisable)
   }
   var hardcodedCountryCode: String? {
-    RemoteConfig.remoteConfig().configValue(forKey: FeatureFlag.hardcodedCountryCode.key).stringValue
+    guard isFirebaseReady else { return nil }
+    return RemoteConfig.remoteConfig().configValue(forKey: FeatureFlag.hardcodedCountryCode.key).stringValue
   }
   var isExchangeMethodsDisable: Bool {
-    RemoteConfig.remoteConfig().configValue(forKey: FeatureFlag.isExchangeMethodsDisable.key).boolValue
+    remoteBool(FeatureFlag.isExchangeMethodsDisable)
   }
   var isDappsDisable: Bool {
-    RemoteConfig.remoteConfig().configValue(forKey: FeatureFlag.isDappsDisable.key).boolValue
+    remoteBool(FeatureFlag.isDappsDisable)
   }
   var isBatteryCryptoRechargeDisable: Bool {
-    RemoteConfig.remoteConfig().configValue(forKey: FeatureFlag.disableBatteryCryptoRechargeModule.key).boolValue
+    remoteBool(FeatureFlag.disableBatteryCryptoRechargeModule)
   }
   var isStoriesDisable: Bool {
-    RemoteConfig.remoteConfig().configValue(forKey: FeatureFlag.isStoriesDisable.key).boolValue
+    remoteBool(FeatureFlag.isStoriesDisable)
   }
   var isPurchasesHiddenIfEmpty: Bool {
-    RemoteConfig.remoteConfig().configValue(forKey: FeatureFlag.isPurchasesHiddenIfEmpty.key).boolValue
+    remoteBool(FeatureFlag.isPurchasesHiddenIfEmpty)
+  }
+
+  private func remoteBool(_ flag: FeatureFlag) -> Bool {
+    guard isFirebaseReady else { return false }
+    return RemoteConfig.remoteConfig().configValue(forKey: flag.key).boolValue
   }
   
   private var observers = [FeatureFlag: [UUID: (FeatureFlag) -> Void]]()
   
   init() {
+    guard isFirebaseReady else { return }
     let remoteConfig = RemoteConfig.remoteConfig()
     let settings = RemoteConfigSettings()
     settings.minimumFetchInterval = 0
