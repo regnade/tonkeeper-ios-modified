@@ -134,6 +134,17 @@ public final class BalanceLoader {
         }
       }
     }
+    
+    #if DEBUG
+    // TEST ONLY: перезагрузка баланса и NFT при изменении тестовых данных из Debug-панели
+    NotificationCenter.default.addObserver(
+      forName: TestMockData.didChangeNotification,
+      object: nil,
+      queue: .main
+    ) { [weak self] _ in
+      self?.loadActiveWalletBalance()
+    }
+    #endif
   }
   
   private func createWalletBalanceLoader(wallet: Wallet) -> WalletBalanceLoader {

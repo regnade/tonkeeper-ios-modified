@@ -11,8 +11,6 @@ Workflow: `.github/workflows/ipa.yml`
 - Uploads `Tonkeeper-5.1.1.ipa` as an artifact and as a GitHub Release (`ipa-5.1.1-<run>`).
 - Sideload with your own certificate (AltStore, Sideloadly, or a development profile). The CI IPA is unsigned.
 
-If the build needs real Firebase files, put `GoogleService-Info.plist` under `Tonkeeper/Resources/Firebase/` (see `setup_keys.sh`). CI writes placeholders automatically.
-
 ## Setup
 
 ### Tonkeeper team

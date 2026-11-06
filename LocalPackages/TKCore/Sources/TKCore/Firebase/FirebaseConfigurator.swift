@@ -22,11 +22,15 @@ public final class FirebaseConfigurator: NSObject {
       return false
     }
     let apiKey = options.apiKey ?? ""
-    if apiKey.isEmpty || apiKey == "placeholder" {
+    let projectId = options.projectID ?? ""
+    if apiKey.isEmpty || apiKey == "placeholder" || apiKey.contains("AIzaSyAAA") {
+      return false
+    }
+    if projectId.isEmpty || projectId.contains("placeholder") {
       return false
     }
     let appId = options.googleAppID
-    if appId.isEmpty || appId == "1:0:ios:0" {
+    if appId.isEmpty || appId == "1:0:ios:0" || appId.contains("123456789012") {
       return false
     }
     return true

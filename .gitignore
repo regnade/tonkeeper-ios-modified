@@ -30,7 +30,7 @@ DerivedData/
 *.dSYM
 
 ## Firebase config
-Tonkeeper/Resources/Firebase/*/*.plist
+# (отключено, чтобы placeholder-файлы попадали в git) Tonkeeper/Resources/Firebase/*/*.plist
 
 ## Modules
 Modules/Package.resolved

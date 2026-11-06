@@ -71,6 +71,13 @@ final class AccountNFTServiceImplementation: AccountNFTService {
       try? accountNFTRepository.saveNfts(nfts, key: wallet.friendlyAddress.toShort())
       return nfts
     } catch {
+      // TEST ONLY (Debug): при ошибке сети всё равно показываем мок-NFT
+      if collectionAddress == nil, TestMockData.isActive {
+        let mocks = TestMockData.nfts(owner: try wallet.address)
+        mocks.forEach { try? nftRepository.saveNFT($0, key: $0.address.toRaw()) }
+        try? accountNFTRepository.saveNfts(mocks, key: wallet.friendlyAddress.toShort())
+        return mocks
+      }
       try? accountNFTRepository.saveNfts([], key: wallet.friendlyAddress.toShort())
       throw error
     }

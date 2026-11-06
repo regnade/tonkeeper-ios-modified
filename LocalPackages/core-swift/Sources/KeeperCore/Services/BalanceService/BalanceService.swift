@@ -38,8 +38,17 @@ final class BalanceServiceImplementation: BalanceService {
       tonProofToken: tonProofTokenService.getWalletToken(wallet)
     )
     
-    let tonBalance = TestMockData.tonBalance(try await tonBalanceTask) // TEST ONLY (Debug)
-    let jettonsBalance = try await jettonsBalanceTask
+    // TEST ONLY (Debug): если мок активен, ошибки сети не должны обнулять баланс
+    let tonBalance: TonBalance
+    let jettonsBalance: [JettonBalance]
+    if TestMockData.isActive {
+      let realTon = (try? await tonBalanceTask) ?? TonBalance(amount: 0)
+      tonBalance = TestMockData.tonBalance(realTon)
+      jettonsBalance = (try? await jettonsBalanceTask) ?? []
+    } else {
+      tonBalance = try await tonBalanceTask
+      jettonsBalance = try await jettonsBalanceTask
+    }
     let batteryBalance: BatteryBalance?
     do {
       batteryBalance = try await batteryBalanceTask
