@@ -63,7 +63,7 @@ final class AccountNFTServiceImplementation: AccountNFTService {
         isIndirectOwnership: isIndirectOwnership
       )
       if collectionAddress == nil {
-        nfts = TestMockData.nfts(owner: wallet.address) + nfts // TEST ONLY (Debug)
+        nfts = TestMockData.nfts(owner: try wallet.address) + nfts // TEST ONLY (Debug)
       }
       nfts.forEach {
         try? nftRepository.saveNFT($0, key: $0.address.toRaw())

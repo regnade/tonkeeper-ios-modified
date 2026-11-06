@@ -114,8 +114,8 @@ public struct TextOrBinSignDataSigner: SignDataSignerByPayloadType {
     
     let sodium = Sodium()
     guard let signature = sodium.sign.signature(
-      message: signatureDataHash.bytes,
-      secretKey: keyPair.privateKey.data.bytes
+      message: [UInt8](signatureDataHash),
+      secretKey: [UInt8](keyPair.privateKey.data)
     ) else {
         throw SignDataError.signatureFailure
     }
@@ -180,8 +180,8 @@ public struct CellSignDataSigner: SignDataSignerByPayloadType {
     
     let sodium = Sodium()
     guard let signature = sodium.sign.signature(
-      message: try builder.endCell().hash().bytes,
-      secretKey: keyPair.privateKey.data.bytes
+      message: [UInt8](try builder.endCell().hash()),
+      secretKey: [UInt8](keyPair.privateKey.data)
     ) else {
         throw SignDataError.signatureFailure
     }
